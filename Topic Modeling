@@ -1,0 +1,124 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+A Gentle Introduction to NLP<br />
+<br />
+Topics covered in this Blog<br />
+<br />
+<br />
+<ul style="text-align: left;">
+<li>Topic Modeling</li>
+<li>SVD, NMF, Truncated SVD, Randomized SVD</li>
+<li>Stop words, Stemming, Lemmatization</li>
+<li>TF-IDF</li>
+<li>nltk, fbpca,&nbsp;</li>
+</ul>
+<br />
+<br />
+Topic Modeling with NMF and SVD<br />
+<br />
+<ul style="text-align: left;">
+<li>Topic modeling is a good way to start with NLP</li>
+<li>In Topic modeling we decompose a Data matrix into components</li>
+<li>There are 2 major matrix decomposition techniques viz SVD and NMF</li>
+<li>We decompose a Data matrix into components such that we can reconstruct the original matrix without much reconstruction error</li>
+<li>We can decompose our Data matrix into 1 tall thin matrix and 1 wide short matrix (and possibly singular matrix)</li>
+<li>Reconstruction of original matrix is possible iff the components are</li>
+</ul>
+<br />
+<br />
+<ol style="text-align: left;">
+<li>Vector with relative frequency of each word in vocab out of total</li>
+<li>Vector with average # of words per document</li>
+</ol>
+<ul style="text-align: left;">
+<li>Decomposition is to cluster documents into groups, each of which has a different distribution of words, but similar as possible among the group, we call these groups 'Topics'</li>
+<li>i.e We cluster the words into groups, based on those which most frequently appear in each of the Topics</li>
+<li>This is a Bag of Words approach (Doesn't consider words order in the sentence)</li>
+</ul>
+Let's get started:<br />
+<br />
+<ul style="text-align: left;">
+<li>We have a data set of documents in several different categories &amp; Topics</li>
+<li>Knowing actual categories helps us evaluate if topics we find make sense</li>
+</ul>
+<ol style="text-align: left;">
+<li>Import libraries</li>
+</ol>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-mcsjCGnTiMM/XTFd6Tr35QI/AAAAAAAACMc/agMF5QrP9s0I-vhvM2S5QzyuvIseDbkUACLcBGAs/s1600/Capture.PNG" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="144" data-original-width="840" src="https://1.bp.blogspot.com/-mcsjCGnTiMM/XTFd6Tr35QI/AAAAAAAACMc/agMF5QrP9s0I-vhvM2S5QzyuvIseDbkUACLcBGAs/s1600/Capture.PNG" /></a></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Data Source:</div>
+<div>
+<ul style="text-align: left;">
+<li>Newsgroups are discussion groups on Usenet, which was popular in the 80's and 90's before the web really took off. This data set includes 18,000 newsgroups with 20 topics</li>
+<li>We select data from 4 categories, namely</li>
+</ul>
+<ol style="text-align: left;">
+<li>Atheism</li>
+<li>Religion</li>
+<li>Graphics</li>
+<li>Space</li>
+</ol>
+<ul style="text-align: left;">
+<li>Target Labels (0, 1,&nbsp; 2, 3, 4)</li>
+</ul>
+Stop-words, Stemming, Lemmatization</div>
+<div>
+<ul style="text-align: left;">
+<li>We don't use these techniques because it is throwing away important feature information and as there is no limit for compute (for LM's like BERT, GPT2, ULMFiT)</li>
+<li>Most popular words in USA states is 'The' if stop words aren't used</li>
+<li>We use these techniques when we have less data and have model which doesn't handle complexity (i.e not a Neural Network)</li>
+</ul>
+<ul style="text-align: left;">
+<li>NLTK&nbsp;</li>
+</ul>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-eUqXoWwz5V0/XTFgSIoRi9I/AAAAAAAACMo/tCG0btG7_7YxyKqZBWHQ-VnbrlQ_bdIsgCLcBGAs/s1600/Capture1.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="382" data-original-width="850" src="https://1.bp.blogspot.com/-eUqXoWwz5V0/XTFgSIoRi9I/AAAAAAAACMo/tCG0btG7_7YxyKqZBWHQ-VnbrlQ_bdIsgCLcBGAs/s1600/Capture1.PNG" /></a></div>
+<div>
+<ul style="text-align: left;">
+<li>Lemmatizer is just a fancy stemmer</li>
+<li>There are other libraries for lemmatizer like&nbsp;</li>
+</ul>
+<ol style="text-align: left;">
+<li>spacy</li>
+<li>SentencePiece (library from Google)</li>
+</ol>
+</div>
+<div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-GDY45uukug4/XTFhEby7_WI/AAAAAAAACMw/l0PloGHWlYEVccHqwsCltpysh3rfFuznQCLcBGAs/s1600/Capture2.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="223" data-original-width="839" src="https://1.bp.blogspot.com/-GDY45uukug4/XTFhEby7_WI/AAAAAAAACMw/l0PloGHWlYEVccHqwsCltpysh3rfFuznQCLcBGAs/s1600/Capture2.PNG" /></a></div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Count Vectorizer VS TF-IDF Vectorizer<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<br /></div>
